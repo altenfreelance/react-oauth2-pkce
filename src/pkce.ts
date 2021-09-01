@@ -1,7 +1,7 @@
 import sha256 from 'crypto-js/sha256';
 const CryptoJS = require("crypto-js");
 
-import b64id from 'b64id';
+const b64id = require('b64id');
 
 export type PKCECodePair = {
   codeVerifier: string
