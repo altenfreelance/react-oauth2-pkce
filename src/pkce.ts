@@ -8,14 +8,6 @@ export type PKCECodePair = {
   createdAt: Date
 }
 
-export const base64URLEncode = (str: Buffer): string => {
-  return str
-    .toString('base64')
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=/g, '')
-}
-
 const generateRandomString = (): string => {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -23,14 +15,13 @@ const generateRandomString = (): string => {
   for (var i = 0; i < 64; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
-
   return CryptoJS.enc.Utf8.parse(text);
 }
 
 
 export const createPKCECodes = (): PKCECodePair => {
-  const codeVerifier = generateRandomString()
-  const codeChallenge = sha256(codeVerifier).toString(CryptoJS.enc.Base64)
+  const codeVerifier = btoa(generateRandomString())
+  const codeChallenge = btoa(sha256(codeVerifier).toString(CryptoJS.enc.Base64))
   const createdAt = new Date()
   const codePair = {
     codeVerifier,
