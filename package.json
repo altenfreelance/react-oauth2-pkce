@@ -1,10 +1,10 @@
 {
-  "name": "react-oauth2-pkce",
-  "version": "2.0.4",
+  "name": "react-oauth2-pkce-generic",
+  "version": "1.0.0",
   "description": "Authenticate against generic OAuth2 using PKCE",
   "author": "Gardner Bickford <gardner@bickford.nz>",
   "license": "MIT",
-  "repository": "gardner/react-oauth2-pkce",
+  "repository": "altenfreelance/react-oauth2-pkce",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
