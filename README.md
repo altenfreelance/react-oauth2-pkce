@@ -7,14 +7,14 @@
 ## Install
 
 ```bash
-npm install --save react-oauth2-pkce-generic
+npm install --save generic-react-oauth2-pkce
 ```
 
 ## Usage
 
 ```tsx
 import React from 'react'
-import { AuthProvider, AuthService } from 'react-oauth2-pkce-generic'
+import { AuthProvider, AuthService } from 'generic-react-oauth2-pkce'
 
 import { Routes } from './Routes';
 
