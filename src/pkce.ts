@@ -1,5 +1,6 @@
 import sha256 from 'crypto-js/sha256';
 const CryptoJS = require("crypto-js");
+const URLSafeBase64 = require('urlsafe-base64');
 
 
 export type PKCECodePair = {
@@ -20,8 +21,8 @@ const generateRandomString = (): string => {
 
 
 export const createPKCECodes = (): PKCECodePair => {
-  const codeVerifier = btoa(generateRandomString())
-  const codeChallenge = btoa(sha256(codeVerifier).toString(CryptoJS.enc.Base64))
+  const codeVerifier = URLSafeBase64.encode(generateRandomString())
+  const codeChallenge = URLSafeBase64.encode(sha256(codeVerifier).toString(CryptoJS.enc.Base64))
   const createdAt = new Date()
   const codePair = {
     codeVerifier,
