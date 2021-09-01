@@ -3,8 +3,6 @@ const CryptoJS = require("crypto-js");
 
 import b64id from 'b64id';
 
-
-
 export type PKCECodePair = {
   codeVerifier: string
   codeChallenge: string
