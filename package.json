@@ -39,6 +39,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/crypto-js": "^4.0.2",
     "@types/jest": "^25.1.4",
     "@types/jwt-decode": "^2.2.1",
     "@types/mocha": "^8.0.1",
@@ -78,6 +79,7 @@
     "dist"
   ],
   "dependencies": {
+    "crypto-js": "^4.1.1",
     "jwt-decode": "^2.2.0"
   }
 }

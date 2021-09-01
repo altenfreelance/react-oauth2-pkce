@@ -1,4 +1,6 @@
-import { randomBytes, createHash } from 'crypto'
+import sha256 from 'crypto-js/sha256';
+const CryptoJS = require("crypto-js");
+
 
 export type PKCECodePair = {
   codeVerifier: string
@@ -14,13 +16,21 @@ export const base64URLEncode = (str: Buffer): string => {
     .replace(/=/g, '')
 }
 
-export const sha256 = (buffer: Buffer): Buffer => {
-  return createHash('sha256').update(buffer).digest()
+const generateRandomString = (): string => {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 64; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+
+  return CryptoJS.enc.Utf8.parse(text);
 }
 
+
 export const createPKCECodes = (): PKCECodePair => {
-  const codeVerifier = base64URLEncode(randomBytes(64))
-  const codeChallenge = base64URLEncode(sha256(Buffer.from(codeVerifier)))
+  const codeVerifier = generateRandomString()
+  const codeChallenge = sha256(codeVerifier).toString(CryptoJS.enc.Base64)
   const createdAt = new Date()
   const codePair = {
     codeVerifier,
