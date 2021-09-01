@@ -79,6 +79,7 @@
     "dist"
   ],
   "dependencies": {
+    "b64id": "^1.0.0",
     "crypto-js": "^4.1.1",
     "jwt-decode": "^2.2.0"
   }
